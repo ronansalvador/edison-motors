@@ -1,0 +1,15 @@
+.carousel {
+  height: 700px;
+}
+
+.carousel-item {
+  height: 700px;
+}
+
+.carousel-item img {
+  position: absolute;
+  top: -28%;
+  left: 0;
+  width: 100%;
+  min-height: 700px;
+}
