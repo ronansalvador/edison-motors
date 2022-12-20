@@ -14,12 +14,27 @@ function EdisonProvider({ children }) {
   const [yearMax, setyearMax] = useState(999999);
   const [kilometreMin, setkilometreMin] = useState(0);
   const [kilometreMax, setkilometreMax] = useState(999999);
-  const [model, setmodel] = useState([]);
+  const initialmodel = () => {
+    const result = [];
+    cars.forEach((item) => {
+      if (!result.some((element) => element === item.model)) {
+        result.push(item.model);
+      }
+    });
+    return result
+  };
+  const [model, setmodel] = useState(initialmodel());
+  const [brands] = useState( () => {
+    const setBrand = {};
+    model.forEach((item) => {
+      setBrand[item] = false;
+    });
+    return setBrand})
   const [allFuel] = useState(['Gasolina', 'Álcool', 'Diesel', 'Elétrico'])
   const [allGearshift] = useState(['Manual', 'Automático']);
   const [filterCar, setFilterCar] = useState({
     model: {
-      ...model,
+      ...brands,
     },
     fuel: {
       Gasolina: false,
@@ -31,7 +46,12 @@ function EdisonProvider({ children }) {
       Manual: false,
       Automático: false,
     },
-  })
+  });
+
+  const [filterModel, setFilterModel] = useState([]);
+  const [filterFuel, setFilterFuel] = useState([]);
+  const [filterGearshift, setFilterGearshift] = useState([]);
+  
 
 
   const changeTheme = () => {
@@ -52,7 +72,37 @@ function EdisonProvider({ children }) {
     && item.km <= kilometreMax);
 
     setCatalog(result);
+    
+
   }
+
+  const setCatalogFilter = () => {
+    if(filterModel.length > 0) {
+      handleFilter();
+      setCatalogFilterModel();
+    } else handleFilter();
+  }
+
+  const setCatalogFilterModel = () => {
+    
+      const resultFilter = catalog
+      .filter((item) => filterModel.some((brand) => brand === item.model));
+      console.log(filterModel);
+      console.log(catalog)
+      console.log(resultFilter);
+      setCatalog(resultFilter)
+      
+      // if(filterFuel.length > 0) {
+      //   console.log(filterFuel)
+      //   const resultFilter = catalog
+      //   .filter((item) => filterFuel.some((comb) => item.fuel.includes(comb)));
+      //   console.log('filterFuel', resultFilter)
+      //   setCatalog(resultFilter)
+      // }
+    
+  }
+
+  
 
   const contextValue = { 
     theme,
@@ -83,8 +133,11 @@ function EdisonProvider({ children }) {
     model,
     setmodel,
     allGearshift,
-    filterCar,
-    setFilterCar
+    filterCar, setFilterCar,
+    filterModel, setFilterModel,
+    filterFuel, setFilterFuel,
+    filterGearshift, setFilterGearshift,
+    setCatalogFilter
   
   };
   

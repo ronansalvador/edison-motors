@@ -6,25 +6,22 @@ import './Catalog.css';
 import GeneralFilter from './GeneralFilter';
 
 export default function Catalog() {
-  const { coin, catalog, handleFilter, yearMin, yearMax, setmodel } = useContext(EdisonContext);
+  const { coin, catalog, handleFilter, priceMin,
+    priceMax,
+    yearMin,
+    yearMax,
+    kilometreMin,
+    kilometreMax, } = useContext(EdisonContext);
   const history = useNavigate();
-  // console.log(catalog);
-
-  const getAllModels  = (filteredArr: Icar[]) => {
-    const result: Icar[] = [];
-    if (!filteredArr) return [];
-    filteredArr.forEach((item) => {
-      if (!result.some((element) => element === item.model)) {
-        result.push(item.model);
-      }
-    });
-  }
-
-
+  
   useEffect(() => {
     handleFilter();
-    getAllModels(catalog)
-  }, [yearMin, yearMax])
+  }, [priceMin, 
+    priceMax,
+    yearMin,
+    yearMax,
+    kilometreMin,
+    kilometreMax, ])
 
   return (
     <main className="container-catalog">
