@@ -18,6 +18,7 @@ export default function Highlight() {
               <Card
                 key={ car.id }
                 car={ car }
+                model= {car.model}
               />))
           }
         </div>
