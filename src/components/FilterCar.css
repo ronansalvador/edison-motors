@@ -1,0 +1,20 @@
+.filter-car {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  color: white;
+}
+
+.filter-car div {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.filter-car div label {
+  width: 160px;
+}
+
+.filter-car div label input {
+  margin-left: 30px;
+}

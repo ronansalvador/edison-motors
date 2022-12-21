@@ -9,7 +9,9 @@ export default function Card( props : Icar ) {
   const {car} = props
   return (
     <article className="card">
-        <img src={ car.img } alt={ car.name } />
+        <div className='card-image'>
+          <img src={ car.img } alt={ car.name } />
+        </div>
         <div className="car-description">
           <h4>{ car.name }</h4>
           <ul className="car-info">

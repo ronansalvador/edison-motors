@@ -1,10 +1,18 @@
 .card {
-  background-color: #262626;
+  background-color: #262626 !important;
   border-radius: 0;
   font-family: Roboto , sans-serif;
   max-width: 363px;
   min-height: 543px;
 }
+
+.card-image {
+  background-color: white;
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+}
+
 
 .card h4 {
   color: #fff;

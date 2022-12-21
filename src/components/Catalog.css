@@ -1,0 +1,113 @@
+.container-catalog {
+  background-color: black;
+  font-family: Roboto , sans-serif;
+}
+
+.container-catalog h3 {
+  color: #fff;
+  font-weight: 400;
+  padding: 30px 86px;
+  text-transform: uppercase;
+}
+
+.container-catalog section {
+  display: flex;
+}
+
+.filters-catalog {
+  background-color: #262626;
+  display: flex;
+  flex-basis: 1;
+  margin-left: 40px;
+  padding-top: 10px;
+}
+
+.btns-car-motor {
+  display: flex;
+  justify-content: space-around;
+}
+
+.general-filter {
+
+  /* background-color: red; */
+  width: 350px;
+}
+
+.general-filter label {
+
+  /* background-color: red; */
+  margin: 10px 0;
+}
+
+.general-filter button {
+  background-color: #262626;
+  border: none;
+  color: white;
+  font-size: 20px;
+}
+
+.general-filter h6 {
+  color: white;
+  font-size: 15px;
+  padding: 0 20px;
+}
+
+.general-filter p {
+  color: #aaa;
+  font-size: 13px;
+}
+
+.general-filter input {
+  background-color: #262626;
+  border: 1px solid white;
+  border-radius: 10px;
+  color: white;
+  font-size: 13px;
+  padding: 4px 10px;
+  width: 90%;
+}
+
+.filter-general-unit {
+  display: flex;
+  gap: 10px;
+  padding: 0 20px;
+}
+
+.results-filters-catalog {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin: 10px;
+}
+
+.result-filter {
+  background-color: #262626;
+  border: none;
+  text-decoration: none;
+  width: 300px;
+}
+
+.result-filter li {
+  border: none;
+  color: white;
+  list-style: none;
+  text-decoration: none;
+}
+
+.result-filter h4 {
+  color: white;
+  margin: 10px 28px;
+}
+
+.result-filter div {
+
+  /* justify-content: flex-start; */
+  align-items: flex-start;
+
+  /* background-color: red; */
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
