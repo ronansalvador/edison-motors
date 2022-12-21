@@ -7,6 +7,8 @@ import Details from './pages/DetailsPage';
 import Checkout from './pages/Checkout';
 import Login from './pages/Login';
 
+// main-release
+
 function App() {
   return (
 
