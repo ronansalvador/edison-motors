@@ -44,7 +44,7 @@ export default function FilterCar() {
     setCatalogFilter();
   }, [  filterModel, 
     filterFuel, 
-    filterGearshift, ])
+    filterGearshift, filterCar])
 
   const updateFilterTrue =  () => {
     const model =  filterTrue(filterCar, 'model');

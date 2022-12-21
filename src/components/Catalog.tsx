@@ -41,7 +41,9 @@ export default function Catalog() {
                   key={ index }
                   onClick={ () => history(`/${item.id}`) }
                 >
-                  <img src={ item.img } className="result-filter" />
+                  <div className='result-filter-image'>
+                    <img src={ item.img } className="result-filter" />
+                  </div>
                   <div>
                     <h4>{ item.name }</h4>
                     <ul>
@@ -53,7 +55,10 @@ export default function Catalog() {
                   </h3>
                 </button>
               ))
-                : <p>Nem um veículo encontrado</p>
+                : <div>
+                    <p>Nenhum veículo encontrado limpe os filtros e redefina sua pesquisa</p>
+                  </div>
+                  
             }
           </article>
         </section>

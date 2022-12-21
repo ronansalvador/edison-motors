@@ -32,7 +32,7 @@ function EdisonProvider({ children }) {
     return setBrand})
   const [allFuel] = useState(['Gasolina', 'Álcool', 'Diesel', 'Elétrico'])
   const [allGearshift] = useState(['Manual', 'Automático']);
-  const [filterCar, setFilterCar] = useState({
+  const resetfilter = {
     model: {
       ...brands,
     },
@@ -46,7 +46,8 @@ function EdisonProvider({ children }) {
       Manual: false,
       Automático: false,
     },
-  });
+  }
+  const [filterCar, setFilterCar] = useState(resetfilter);
 
   const [filterModel, setFilterModel] = useState([]);
   const [filterFuel, setFilterFuel] = useState([]);
@@ -83,12 +84,15 @@ function EdisonProvider({ children }) {
     } else if(filterFuel.length > 0) {
       handleFilter();
       setCatalogFilterFuel();
+    } else if(filterGearshift.length > 0) {
+      handleFilter();
+      setCatalogFilterGearshift()
     } else handleFilter();
   }
 
   const setCatalogFilterModel = () => {
     
-      const resultFilter = cars
+      const resultFilter = catalog
       .filter((item) => filterModel.some((brand) => brand === item.model));
       console.log(filterModel);
       console.log(catalog)
@@ -98,12 +102,24 @@ function EdisonProvider({ children }) {
       if(filterFuel.length > 0) {
         setCatalogFilterFuel();
       }
+
+      if(filterGearshift.length > 0) {
+        setCatalogFilterGearshift();
+      }
     
   }
 
   const setCatalogFilterFuel = () => {
-    const resultFilter = cars
+    const resultFilter = catalog
         .filter((item) => filterFuel.some((comb) => item.fuel.includes(comb)));
+        console.log('filterFuel', resultFilter)
+        setCatalog(resultFilter)
+  }
+
+  const setCatalogFilterGearshift = () => {
+    console.log('cambio')
+    const resultFilter = catalog
+        .filter((item) => filterGearshift.some((comb) => item.gearshift.includes(comb)));
         console.log('filterFuel', resultFilter)
         setCatalog(resultFilter)
   }
@@ -143,7 +159,7 @@ function EdisonProvider({ children }) {
     filterModel, setFilterModel,
     filterFuel, setFilterFuel,
     filterGearshift, setFilterGearshift,
-    setCatalogFilter
+    setCatalogFilter, resetfilter,
   
   };
   

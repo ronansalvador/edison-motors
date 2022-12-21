@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 // import { useNavigate } from "react-router-dom";
 import EdisonContext from '../context/EdisonContext';
 import FilterCar from './FilterCar';
@@ -18,7 +18,33 @@ export default function GeneralFilter() {
     setkilometreMin,
     kilometreMax,
     setkilometreMax,
+    handleFilter,
+    cars,
+    setCatalog,
+    setFilterCar,
+    resetfilter,
+    setFilterModel,
+    setFilterFuel,
+    setFilterGearshift,
     } = useContext(EdisonContext);
+
+    useEffect(() => {
+      handleFilter()
+    }, [priceMin, priceMax, yearMin, yearMax, kilometreMin, kilometreMax])
+
+    const clearFilters = () => {
+      setCatalog(cars);
+      setpriceMin(0);
+      setpriceMax(999999);
+      setyearMin(0);
+      setyearMax(999999);
+      setkilometreMin(0);
+      setkilometreMax(999999);
+      setFilterCar(resetfilter);
+      setFilterModel([])
+      setFilterFuel([])
+      setFilterGearshift([])
+    }
 
   return (
     <div className="general-filter">
@@ -33,6 +59,13 @@ export default function GeneralFilter() {
             // } }
           >
             Carros
+          </button>
+          <button
+            type="button"
+            name="filtros"
+            onClick={() => clearFilters()}
+          >
+            Limpar Filtros
           </button>
         </div>
         <hr style={ { color: 'white', height: '3px' } } />
