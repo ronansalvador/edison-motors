@@ -1,6 +1,8 @@
 import React, {useContext, useEffect } from 'react';
 // import { useNavigate } from "react-router-dom";
 import EdisonContext from '../context/EdisonContext';
+import './FilterCar.css';
+
 
 
 export default function FilterCar() {
@@ -82,11 +84,14 @@ export default function FilterCar() {
 
   return (
     <>
-        <div>
-          Marcas
+        <div className="filter-car">
+        <h5>Marcas</h5>
           {
             model.map((item: string) => (
-              <label htmlFor="model" key={ item }>
+              <div key={ item }>
+                <label htmlFor="model">
+                  { item }
+                </label>
                 <input
                   type="checkbox"
                   name="model"
@@ -94,16 +99,20 @@ export default function FilterCar() {
                   checked={ filterCar?.model?.item }
                   onClick={ (event) => handleChecked(event ,item) }
                 />
-                { item }
-              </label>
+              </div>
             ))
           }
         </div>
-        <div>
-          Combustivel
+        <hr style={ { color: 'white', height: '3px' } } />
+        <div className="filter-car">
+          <h5>Combustivel</h5>
+          
           {
             allFuel.map((item: string) => (
-              <label htmlFor="model" key={ item }>
+              <div key={ item }>
+                <label htmlFor="model">
+                  { item }
+                </label>
                 <input
                   type="checkbox"
                   name="fuel"
@@ -111,16 +120,19 @@ export default function FilterCar() {
                   checked={ filterCar?.fuel?.item }
                   onClick={ (event) => handleChecked(event ,item) }
                 />
-                { item }
-              </label>
+              </div>
             ))
           }
         </div>
-        <div>
-          Câmbio
+        <hr style={ { color: 'white', height: '3px' } } />
+        <div className="filter-car">
+          <h5>Câmbio</h5>
           {
             allGearshift.map((item: string) => (
-              <label htmlFor="model" key={ item }>
+              <div key={ item }>
+                <label htmlFor="model">
+                  { item }
+                </label>
                 <input
                   type="checkbox"
                   name="gearshift"
@@ -128,8 +140,7 @@ export default function FilterCar() {
                   checked={ filterCar?.gearshift?.item }
                   onClick={ (event) => handleChecked(event ,item) }
                 />
-                { item }
-              </label>
+              </div>
             ))
           }
         </div>

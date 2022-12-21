@@ -1,5 +1,6 @@
 import React from 'react';
 import Catalog from '../components/Catalog';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Highlight from '../components/Highlight';
 import Slider from '../components/Slider';
@@ -11,6 +12,7 @@ export default function Home() {
       <Slider />
       <Highlight />
       <Catalog />
+      <Footer />
     </>
 
   )

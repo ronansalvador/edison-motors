@@ -80,26 +80,32 @@ function EdisonProvider({ children }) {
     if(filterModel.length > 0) {
       handleFilter();
       setCatalogFilterModel();
+    } else if(filterFuel.length > 0) {
+      handleFilter();
+      setCatalogFilterFuel();
     } else handleFilter();
   }
 
   const setCatalogFilterModel = () => {
     
-      const resultFilter = catalog
+      const resultFilter = cars
       .filter((item) => filterModel.some((brand) => brand === item.model));
       console.log(filterModel);
       console.log(catalog)
       console.log(resultFilter);
       setCatalog(resultFilter)
       
-      // if(filterFuel.length > 0) {
-      //   console.log(filterFuel)
-      //   const resultFilter = catalog
-      //   .filter((item) => filterFuel.some((comb) => item.fuel.includes(comb)));
-      //   console.log('filterFuel', resultFilter)
-      //   setCatalog(resultFilter)
-      // }
+      if(filterFuel.length > 0) {
+        setCatalogFilterFuel();
+      }
     
+  }
+
+  const setCatalogFilterFuel = () => {
+    const resultFilter = cars
+        .filter((item) => filterFuel.some((comb) => item.fuel.includes(comb)));
+        console.log('filterFuel', resultFilter)
+        setCatalog(resultFilter)
   }
 
   

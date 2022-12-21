@@ -3,7 +3,7 @@ import './App.css';
 import EdisonProvider from './context/EdisonProvider';
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from './pages/Home';
-import Details from './pages/Details';
+import Details from './pages/DetailsPage';
 import Checkout from './pages/Checkout';
 
 function App() {
@@ -14,8 +14,8 @@ function App() {
     <BrowserRouter>
       <Routes>
          <Route path="/" element={<Home />} />
-         <Route path="/details" element={<Details />} />
-         <Route path="/checkout" element={<Checkout />} />
+         <Route path="/:id" element={<Details />} />
+         <Route path="/payment/:id"  element={<Checkout />} />
       </Routes>
     </BrowserRouter>
    </EdisonProvider>
